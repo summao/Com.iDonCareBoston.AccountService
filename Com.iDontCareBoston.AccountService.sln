@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.iDonCareBoston.AccountService.Grpc", "Com.iDonCareBoston.AccountService.Grpc\Com.iDonCareBoston.AccountService.Grpc.csproj", "{823F83B5-86C4-4213-8C44-F84C8FDA02C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.iDonCareBoston.AccountService.Grpc.Test", "Com.iDonCareBoston.AccountService.Grpc.Test\Com.iDonCareBoston.AccountService.Grpc.Test.csproj", "{7F98F8DC-FE90-4D8A-B77A-C7A61A5E9C5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{823F83B5-86C4-4213-8C44-F84C8FDA02C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{823F83B5-86C4-4213-8C44-F84C8FDA02C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{823F83B5-86C4-4213-8C44-F84C8FDA02C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{823F83B5-86C4-4213-8C44-F84C8FDA02C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F98F8DC-FE90-4D8A-B77A-C7A61A5E9C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F98F8DC-FE90-4D8A-B77A-C7A61A5E9C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F98F8DC-FE90-4D8A-B77A-C7A61A5E9C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F98F8DC-FE90-4D8A-B77A-C7A61A5E9C5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
