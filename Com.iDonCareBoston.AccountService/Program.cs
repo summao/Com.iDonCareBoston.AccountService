@@ -1,6 +1,7 @@
-using Com.iDonCareBoston.AccountService.Grpc.Data;
-using Com.iDonCareBoston.AccountService.Grpc.Repositories;
-using Com.iDonCareBoston.AccountService.Grpc.Services;
+
+using Com.iDonCareBoston.AccountService.Data;
+using Com.iDonCareBoston.AccountService.Repositories;
+using Com.iDonCareBoston.AccountService.Services;
 using Dapper;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddGrpc();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();          
+builder.Services.AddSwaggerGen();
 
 string connectionString = "Host=localhost;Port=5432;Username=myuser;Password=mypassword;Database=accountdb";
 DefaultTypeMap.MatchNamesWithUnderscores = true;

@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Com.iDonCareBoston.AccountService.Grpc\Com.iDonCareBoston.AccountService.Grpc.csproj" />
+    <ProjectReference Include="..\Com.iDonCareBoston.AccountService\Com.iDonCareBoston.AccountService.csproj" />
   </ItemGroup>
 
 </Project>

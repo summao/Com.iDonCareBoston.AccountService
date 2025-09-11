@@ -1,4 +1,4 @@
-namespace Com.iDonCareBoston.AccountService.Grpc.Data;
+namespace Com.iDonCareBoston.AccountService.Data;
 
 using System.Data;
 

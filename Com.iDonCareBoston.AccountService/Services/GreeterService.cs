@@ -1,6 +1,6 @@
 using Grpc.Core;
 
-namespace Com.iDonCareBoston.AccountService.Grpc.Services;
+namespace Com.iDonCareBoston.AccountService.Services;
 
 public class GreeterService : Greeter.GreeterBase
 {

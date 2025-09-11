@@ -1,4 +1,4 @@
-namespace Com.iDonCareBoston.AccountService.Grpc.Entities;
+namespace Com.iDonCareBoston.AccountService.Entities;
 
 public class UserProfile
 {

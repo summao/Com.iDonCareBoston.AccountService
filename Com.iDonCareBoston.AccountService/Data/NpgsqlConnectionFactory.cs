@@ -1,7 +1,7 @@
 using Npgsql;
 using System.Data;
 
-namespace Com.iDonCareBoston.AccountService.Grpc.Data;
+namespace Com.iDonCareBoston.AccountService.Data;
 
 public class NpgsqlConnectionFactory(string connectionString) : IDbConnectionFactory
 {

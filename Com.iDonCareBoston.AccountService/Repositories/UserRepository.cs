@@ -1,7 +1,7 @@
-namespace Com.iDonCareBoston.AccountService.Grpc.Repositories;
+namespace Com.iDonCareBoston.AccountService.Repositories;
 
-using Com.iDonCareBoston.AccountService.Grpc.Data;
-using Com.iDonCareBoston.AccountService.Grpc.Entities;
+using Com.iDonCareBoston.AccountService.Data;
+using Com.iDonCareBoston.AccountService.Entities;
 using Dapper;
 
 public class UserRepository(IUnitOfWork unitOfWork) : IUserRepository

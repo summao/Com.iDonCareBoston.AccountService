@@ -1,6 +1,6 @@
-using Com.iDonCareBoston.AccountService.Grpc.Entities;
+using Com.iDonCareBoston.AccountService.Entities;
 
-namespace Com.iDonCareBoston.AccountService.Grpc.Repositories;
+namespace Com.iDonCareBoston.AccountService.Repositories;
 
 public interface IUserRepository
 {

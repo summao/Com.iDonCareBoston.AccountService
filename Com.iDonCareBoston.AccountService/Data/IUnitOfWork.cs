@@ -1,6 +1,6 @@
 using System.Data;
 
-namespace Com.iDonCareBoston.AccountService.Grpc.Data;
+namespace Com.iDonCareBoston.AccountService.Data;
 
 public interface IUnitOfWork : IDisposable
 {
