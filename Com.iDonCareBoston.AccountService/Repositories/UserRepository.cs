@@ -10,8 +10,9 @@ public class UserRepository(IUnitOfWork unitOfWork) : IUserRepository
 
     public async Task<Guid> CreateUserAsync(User user)
     {
-        const string sql = @"INSERT INTO users (user_id, email, status, created_at)
-                             VALUES (@UserId, @Email, @Status, @CreatedAt)";
+        const string sql =
+            @"INSERT INTO users (user_id, email, status, created_at)
+              VALUES (@UserId, @Email, @Status, @CreatedAt)";
         await _unitOfWork.Connection.ExecuteAsync(sql, user);
         return user.UserId;
     }
