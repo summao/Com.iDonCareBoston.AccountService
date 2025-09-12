@@ -1,7 +1,7 @@
 using Grpc.Core;
 using Google.Protobuf.WellKnownTypes;
 using Com.iDonCareBoston.AccountService.Repositories;
-using AccountService;
+using Com.iDonCareBoston.AccountService.Services.Grpc;
 using Com.iDonCareBoston.AccountService.Entities;
 
 namespace Com.iDonCareBoston.AccountService.Services;
