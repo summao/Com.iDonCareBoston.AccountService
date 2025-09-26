@@ -5,5 +5,5 @@ namespace Com.iDonCareBoston.AccountService.Repositories;
 public interface IUserRepository
 {
     Task<Guid> CreateUser(User user);
-    Task<User?> GetUserById(string userId);
+    Task<User?> GetBy(string userId);
 }

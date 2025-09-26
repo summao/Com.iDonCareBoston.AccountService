@@ -17,7 +17,7 @@ public class UserGrpcService :  Grpc.UserService.UserServiceBase
 
     public override async Task<GetUserResponse> GetUser(GetUserRequest request, ServerCallContext context)
     {
-        var user = await _userRepository.GetUserById(request.UserId) ?? throw new RpcException(new Status(StatusCode.NotFound, "User not found"));
+        var user = await _userRepository.GetBy(request.UserId) ?? throw new RpcException(new Status(StatusCode.NotFound, "User not found"));
         return new GetUserResponse
         {
             UserId = user.UserId.ToString(),

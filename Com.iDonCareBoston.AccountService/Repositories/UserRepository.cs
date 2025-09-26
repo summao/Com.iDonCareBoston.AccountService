@@ -15,7 +15,7 @@ public class UserRepository(IUnitOfWork _uow) : IUserRepository
         return await _uow.Connection.ExecuteScalarAsync<Guid>(sql, user, _uow.Transaction);
     }
 
-    public async Task<User?> GetUserById(string userId)
+    public async Task<User?> GetBy(string userId)
     {
         Guid id = Guid.Parse(userId);
         const string sql = "SELECT * FROM users WHERE user_id = @Id";

@@ -30,7 +30,7 @@ public class UserService(IUserRepository _userRepository, IUnitOfWork _uow) : IU
 
     public async Task<UserDto?> GetBy(string userId)
     {
-        var user = await _userRepository.GetUserById(userId);
+        var user = await _userRepository.GetBy(userId);
         if (user == null) return null;
 
         return new UserDto
