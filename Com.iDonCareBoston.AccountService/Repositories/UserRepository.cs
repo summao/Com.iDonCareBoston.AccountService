@@ -4,22 +4,21 @@ using Com.iDonCareBoston.AccountService.Data;
 using Com.iDonCareBoston.AccountService.Entities;
 using Dapper;
 
-public class UserRepository(IUnitOfWork unitOfWork) : IUserRepository
+public class UserRepository(IUnitOfWork _uow) : IUserRepository
 {
-    private readonly IUnitOfWork _unitOfWork = unitOfWork;
-
-    public async Task<Guid> CreateUserAsync(User user)
+    public async Task<Guid> CreateUser(User user)
     {
         const string sql =
             @"INSERT INTO users (user_id, email, status, created_at)
-              VALUES (@UserId, @Email, @Status, @CreatedAt)";
-        await _unitOfWork.Connection.ExecuteAsync(sql, user);
-        return user.UserId;
+              VALUES (@UserId, @Email, @Status, @CreatedAt) 
+              RETURNING id;";
+        return await _uow.Connection.ExecuteScalarAsync<Guid>(sql, user, _uow.Transaction);
     }
 
-    public async Task<User?> GetUserByIdAsync(Guid userId)
+    public async Task<User?> GetUserById(string userId)
     {
+        Guid id = Guid.Parse(userId);
         const string sql = "SELECT * FROM users WHERE user_id = @Id";
-        return await _unitOfWork.Connection.QueryFirstOrDefaultAsync<User>(sql, new { Id = userId });
+        return await _uow.Connection.QueryFirstOrDefaultAsync<User>(sql, new { Id = id }, _uow.Transaction);
     }
 }

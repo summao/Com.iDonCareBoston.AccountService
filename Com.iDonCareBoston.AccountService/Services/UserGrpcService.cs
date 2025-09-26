@@ -6,7 +6,7 @@ using Com.iDonCareBoston.AccountService.Entities;
 
 namespace Com.iDonCareBoston.AccountService.Services;
 
-public class UserGrpcService : UserService.UserServiceBase
+public class UserGrpcService :  Grpc.UserService.UserServiceBase
 {
     private readonly IUserRepository _userRepository;
 
@@ -17,12 +17,7 @@ public class UserGrpcService : UserService.UserServiceBase
 
     public override async Task<GetUserResponse> GetUser(GetUserRequest request, ServerCallContext context)
     {
-        var userId = Guid.Parse(request.UserId);
-        var user = await _userRepository.GetUserByIdAsync(userId);
-
-        if (user == null)
-            throw new RpcException(new Status(StatusCode.NotFound, "User not found"));
-
+        var user = await _userRepository.GetUserById(request.UserId) ?? throw new RpcException(new Status(StatusCode.NotFound, "User not found"));
         return new GetUserResponse
         {
             UserId = user.UserId.ToString(),
@@ -37,12 +32,14 @@ public class UserGrpcService : UserService.UserServiceBase
         var user = new User
         {
             UserId = Guid.NewGuid(),
+            DisplayName = "", // TODO เอาจาก request มาใส่
+            PasswordHash = "",
             Email = request.Email,
             Status = string.IsNullOrEmpty(request.Status) ? "active" : request.Status,
             CreatedAt = DateTime.UtcNow
         };
 
-        await _userRepository.CreateUserAsync(user);
+        await _userRepository.CreateUser(user);
 
         return new CreateUserResponse
         {

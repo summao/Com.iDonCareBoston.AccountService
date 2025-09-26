@@ -3,6 +3,7 @@ using Com.iDonCareBoston.AccountService.Data;
 using Com.iDonCareBoston.AccountService.Repositories;
 using Com.iDonCareBoston.AccountService.Services;
 using Dapper;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,17 +16,13 @@ string connectionString = "Host=localhost;Port=5432;Username=myuser;Password=myp
 DefaultTypeMap.MatchNamesWithUnderscores = true;
 builder.WebHost.ConfigureKestrel(options =>
 {
-    options.ListenAnyIP(5000, listenOptions =>
-    {
-        listenOptions.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http1AndHttp2;
-    });
+    options.ListenLocalhost(5000, o => o.Protocols = HttpProtocols.Http1);
+    options.ListenLocalhost(5001, o => o.Protocols = HttpProtocols.Http2); 
 });
-builder.Services.AddScoped<IDbConnectionWrapper>(_ => new NpgsqlConnectionWrapper(connectionString));
-
+builder.Services.AddScoped<IDbConnectionFactory>(_ => new NpgsqlConnectionFactory(connectionString));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 

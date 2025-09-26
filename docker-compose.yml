@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   postgres:
-    image: postgres:16   # ใช้เวอร์ชันล่าสุดหรือที่คุณต้องการ
+    image: postgres:16
     container_name: postgres
     restart: always
     environment:
@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: mypassword
       POSTGRES_DB: accountdb
     ports:
-      - "5432:5432"   # map port ให้ host ใช้
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
